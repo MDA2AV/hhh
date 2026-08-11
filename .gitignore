@@ -55,3 +55,7 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+.idea/
+
+# Rider per-developer settings
+*.DotSettings.user

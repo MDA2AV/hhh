@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>hhh</RootNamespace>
+    <AssemblyName>hhh</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ioxide" Version="0.4.178" />
+    <PackageReference Include="ioxide.ngtcp2" Version="0.4.178" />
+    <PackageReference Include="ioxide.nghttp3" Version="0.4.178" />
+  </ItemGroup>
+
+</Project>
