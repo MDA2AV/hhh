@@ -43,9 +43,7 @@ public static class h3
 
         for (int i = 0; i < threads.Length; i++) {
             var reactor = new Reactor(i, server) {
-                // Buffered dispatch: the request is complete before the handler runs, so request.Body
-                // holds the whole body. That is the right trade for handlers that answer from memory or
-                // a quick lookup, and the wrong one for a hostile upload - the body is held whole.
+                // buffered dispatch
                 QuicHandle = (_, connection) =>
                     new Nghttp3Connection(connection).RunBufferedAsync(handler)
             };
@@ -54,12 +52,10 @@ public static class h3
             threads[i].Start();
         }
 
-        try
-        {
+        // TODO:
+        try {
             await Task.Delay(Timeout.Infinite, cancellationToken);
-        }
-        catch (OperationCanceledException)
-        {
+        }catch (OperationCanceledException) {
             // Cancellation is how this is meant to end.
         }
     }
